@@ -8,6 +8,6 @@ import com.yyf.androidserver.bean.ResultBean;
 public interface ICommentService {
 
 	ResultBean<List<CommentBean>> getComments(int newsId, String offset,
-			String size, String sSortName, String sSortOrder);
+			String size,  String sSortName, String sSortOrder);
 
 }
