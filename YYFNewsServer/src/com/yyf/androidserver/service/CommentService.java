@@ -50,27 +50,23 @@ public class CommentService implements ICommentService {
 				comment.setNews(news);
 
 				UserBean user = userServive.getUser(rs.getInt("userId")).data;
-				user.setPassword("");
 				comment.setUser(user);
 
 				listComment.add(comment);
 			}
 
 			if (listComment.size() == 0) {
-				result.code = ResultBean.CODE_DATASET_EMPTY;
-				result.msg = ResultBean.MSG_DATASET_EMPTY;
-				result.data = null;
-			} else {
-				result.code = ResultBean.CODE_DATASET_NOT_EMPTY;
-				result.msg = ResultBean.MSG_DATASET_NOT_EMPTY;
-				result.data = listComment;
+				listComment = null;
 			}
+			result.code = ResultBean.CODE_QUERY_SUCCESS;
+			result.msg = ResultBean.MSG_QUERY_SUCCESS;
+			result.data = listComment;
 
 		} catch (Exception e) {
 			e.printStackTrace();
 
-			result.code = ResultBean.CODE_ERROR;
-			result.msg = ResultBean.MSG_ERROR;
+			result.code = ResultBean.CODE_SQL_OPERATOR_ERROR;
+			result.msg = ResultBean.MSG_SQL_OPERATOR_ERROR;
 			result.data = null;
 		} finally {
 			try {

@@ -2,26 +2,26 @@ package com.yyf.androidserver.bean;
 
 public class ResultBean<T> {
 
-	// 1.服务器错误时，返回{code:1,msg:xxx,data:null}
-	// 2.单个数据，存在时，返回{code:2,msg:xxx,data:xxx}
-	// 3.单个数据，没有时，返回{code:3,msg:xxx,data:null}
-	// 4.数据集，空，返回{code:4,msg:xxx,data:null}
-	// 5.数据集，非空，返回{code:5,msg:xxx,data:[xxx,xxx]}
-	// 6.更新数据，返回{code:6,msg:xxx,data:更新数据量}
+	// 1. 插入数据，返回{code:1,msg:XXX,data:插入数据量}
+	// 2. 删除数据，返回{code:2,msg:XXX,data:删除数据量}
+	// 3. 更新数据，返回{code:3,msg:XXX,data:更新数据量}
+	// 4. 查询数据，返回{code:4,msg:XXX,data:null/bean/List<bean>}，null表示没有查询到相应的数据
+	// 5. 服务器端数据库操作失败，返回{code:5,msg:XXX,data:null}
+	// 6. 数据是否已经存在，返回{code:6,msg:XXX,data:true/false}
 
-	public static final int CODE_ERROR = 0X01; // 服务器端错误
-	public static final int CODE_SINGLE_HAVE = 0X02; // 单条数据，有
-	public static final int CODE_SINGLE_NOT_HAVE = 0X03; // 单条数据，没有
-	public static final int CODE_DATASET_EMPTY = 0X04; // 数据集，空
-	public static final int CODE_DATASET_NOT_EMPTY = 0X05; // 数据集，非空
-	public static final int CODE_UPDATE = 0X06; // 更新数据
+	public static final int CODE_INSERT_SUCCESS = 0X01; // 插入成功
+	public static final int CODE_DELETE_SUCCESS = 0X02; // 删除成功
+	public static final int CODE_UPDATE_SUCCESS = 0X03; // 更新成功
+	public static final int CODE_QUERY_SUCCESS = 0X04; // 查询成功
+	public static final int CODE_SQL_OPERATOR_ERROR = 0X05; // 服务器端数据库操作失败
+	public static final int CODE_IS_EXSITED = 0X06; // 数据是否已经存在
 
-	public static final String MSG_ERROR = "服务器端错误"; // 服务器端错误
-	public static final String MSG_SINGLE_HAVE = "有该数据"; // 单条数据，有
-	public static final String MSG_SINGLE_NOT_HAVE = "没有该数据"; // 单条数据，没有
-	public static final String MSG_DATASET_EMPTY = "数据集为空"; // 数据集，空
-	public static final String MSG_DATASET_NOT_EMPTY = "数据集非空"; // 数据集，非空
-	public static final String MSG_UPDATE = "更新数据量"; // 更新数据量
+	public static final String MSG_INSERT_SUCCESS = "插入成功";
+	public static final String MSG_DELETE_SUCCESS = "删除成功";
+	public static final String MSG_UPDATE_SUCCESS = "更新成功";
+	public static final String MSG_QUERY_SUCCESS = "查询成功";
+	public static final String MSG_SQL_OPERATOR_ERROR = "服务器端数据库操作失败"; // 服务器端数据库操作失败
+	public static final String MSG_IS_EXSITED = "数据是否已经存在";
 
 	public int code;
 	public String msg;

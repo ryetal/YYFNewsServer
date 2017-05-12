@@ -45,8 +45,8 @@ public class SearchHotServlet extends HttpServlet {
 		datas.add("洗浴中心");
 
 		ResultBean<List<String>> result = new ResultBean<List<String>>();
-		result.code = ResultBean.CODE_DATASET_NOT_EMPTY;
-		result.msg = ResultBean.MSG_DATASET_NOT_EMPTY;
+		result.code = ResultBean.CODE_QUERY_SUCCESS;
+		result.msg = ResultBean.MSG_QUERY_SUCCESS;
 		result.data = datas;
 
 		out.print(GsonUtil.toGson(result));

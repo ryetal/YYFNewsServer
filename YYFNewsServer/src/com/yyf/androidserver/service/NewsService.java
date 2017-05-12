@@ -48,20 +48,17 @@ public class NewsService implements INewsService {
 			}
 
 			if (listNews.size() == 0) {
-				result.code = ResultBean.CODE_DATASET_EMPTY;
-				result.msg = ResultBean.MSG_DATASET_EMPTY;
-				result.data = null;
-			} else {
-				result.code = ResultBean.CODE_DATASET_NOT_EMPTY;
-				result.msg = ResultBean.MSG_DATASET_NOT_EMPTY;
-				result.data = listNews;
+				listNews = null;
 			}
+			result.code = ResultBean.CODE_QUERY_SUCCESS;
+			result.msg = ResultBean.MSG_QUERY_SUCCESS;
+			result.data = listNews;
 
 		} catch (Exception e) {
 			e.printStackTrace();
 
-			result.code = ResultBean.CODE_ERROR;
-			result.msg = ResultBean.MSG_ERROR;
+			result.code = ResultBean.CODE_SQL_OPERATOR_ERROR;
+			result.msg = ResultBean.MSG_SQL_OPERATOR_ERROR;
 			result.data = null;
 		} finally {
 			try {
@@ -101,21 +98,16 @@ public class NewsService implements INewsService {
 				news.setImage1(rs.getString("image1"));
 				news.setImage2(rs.getString("image2"));
 				news.setImage3(rs.getString("image3"));
-
-				result.code = ResultBean.CODE_SINGLE_HAVE;
-				result.msg = ResultBean.MSG_SINGLE_HAVE;
-				result.data = news;
-			} else {
-				result.code = ResultBean.CODE_SINGLE_NOT_HAVE;
-				result.msg = ResultBean.MSG_SINGLE_NOT_HAVE;
-				result.data = null;
-			}
+			} 
+			result.code = ResultBean.CODE_QUERY_SUCCESS;
+			result.msg = ResultBean.MSG_QUERY_SUCCESS;
+			result.data = news;
 
 		} catch (Exception e) {
 			e.printStackTrace();
 
-			result.code = ResultBean.CODE_ERROR;
-			result.msg = ResultBean.MSG_ERROR;
+			result.code = ResultBean.CODE_SQL_OPERATOR_ERROR;
+			result.msg = ResultBean.MSG_SQL_OPERATOR_ERROR;
 			result.data = null;
 		} finally {
 			try {
@@ -160,20 +152,17 @@ public class NewsService implements INewsService {
 			}
 
 			if (listNews.size() == 0) {
-				result.code = ResultBean.CODE_DATASET_EMPTY;
-				result.msg = ResultBean.MSG_DATASET_EMPTY;
-				result.data = null;
-			} else {
-				result.code = ResultBean.CODE_DATASET_NOT_EMPTY;
-				result.msg = ResultBean.MSG_DATASET_NOT_EMPTY;
-				result.data = listNews;
+				listNews = null;
 			}
+			result.code = ResultBean.CODE_QUERY_SUCCESS;
+			result.msg = ResultBean.MSG_QUERY_SUCCESS;
+			result.data = listNews;
 
 		} catch (Exception e) {
 			e.printStackTrace();
-
-			result.code = ResultBean.CODE_ERROR;
-			result.msg = ResultBean.MSG_ERROR;
+			
+			result.code = ResultBean.CODE_SQL_OPERATOR_ERROR;
+			result.msg = ResultBean.MSG_SQL_OPERATOR_ERROR;
 			result.data = null;
 		} finally {
 			try {
